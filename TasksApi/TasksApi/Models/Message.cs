@@ -1,6 +1,7 @@
 ﻿namespace TasksApi.Models
 {
-    public class message
+    public class Message
     {
+        public string? message { get; set; }
     }
 }

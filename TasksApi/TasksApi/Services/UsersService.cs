@@ -15,7 +15,7 @@ namespace TasksApi.Services
         {
             _userRepository = userRepository;
             _loggerFactory = loggerFactory;
-            _logger = _loggerFactory.GetLogger(true);
+            _logger = _loggerFactory.GetLogger("file");
         }
         public bool CreateUser(TasksUser user)
         {

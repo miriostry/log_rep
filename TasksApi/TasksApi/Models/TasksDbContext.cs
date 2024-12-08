@@ -18,7 +18,8 @@ public partial class TasksDbContext : DbContext
     public virtual DbSet<TasksUser> TasksUsers { get; set; }
 
     public virtual DbSet<Attachments> AttachmentsTasks { get; set; }
-   
+
+    public virtual DbSet<Message> Message{ get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Tasks>(entity =>

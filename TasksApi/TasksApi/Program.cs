@@ -1,6 +1,3 @@
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using TasksApi.Models;
 using TasksApi.Repository;
 using TasksApi.Services;
@@ -22,13 +19,17 @@ builder.Services.AddScoped(typeof(GenericRepository<>));
 
 builder.Services.AddScoped<ILoggerService, ConsoleLoggerService>();
 
-builder.Services.AddScoped<FileLoggerService>(provider =>
-    new FileLoggerService("logs.txt")
-);
+builder.Services.AddScoped<ILoggerService, FileLoggerService>();
+
+builder.Services.AddScoped<ILoggerService, DbLogger>();
+
+//builder.Services.AddScoped<FileLoggerService>(provider =>
+//    new FileLoggerService("logs.txt")
+//);
 
 
 
-builder.Services.AddScoped<TasksApi.Services.Logger.LoggerFactory>();
+//builder.Services.AddScoped<TasksApi.Services.Logger.LoggerFactory>();
 
 builder.Services.AddControllers();
 

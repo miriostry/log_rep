@@ -9,13 +9,12 @@
             _serviceProvider = serviceProvider;
         }
 
-        public ILoggerService GetLogger(bool useFileLogger)
+        public ILoggerService GetLogger(string whichLogger)
         {
-            if (useFileLogger)
-            {
+            if (whichLogger=="file")
                 return _serviceProvider.GetRequiredService<FileLoggerService>();
-            }
-
+            if (whichLogger == "db")
+                return _serviceProvider.GetRequiredService<DbLogger>();
             return _serviceProvider.GetRequiredService<ILoggerService>();
         }
     }
